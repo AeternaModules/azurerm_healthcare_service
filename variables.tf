@@ -34,9 +34,9 @@ EOT
     access_policy_object_ids                  = optional(set(string))
     configuration_export_storage_account_name = optional(string)
     cosmosdb_key_vault_key_versionless_id     = optional(string)
-    cosmosdb_throughput                       = optional(number, 1000)
-    kind                                      = optional(string, "fhir")
-    public_network_access_enabled             = optional(bool, true)
+    cosmosdb_throughput                       = optional(number) # Default: 1000
+    kind                                      = optional(string) # Default: "fhir"
+    public_network_access_enabled             = optional(bool)   # Default: true
     tags                                      = optional(map(string))
     authentication_configuration = optional(object({
       audience            = optional(string)
