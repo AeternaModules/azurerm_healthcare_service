@@ -1,3 +1,7 @@
+output "healthcare_services_id" {
+  description = "Map of id values across all healthcare_services, keyed the same as var.healthcare_services"
+  value       = { for k, v in azurerm_healthcare_service.healthcare_services : k => v.id }
+}
 output "healthcare_services_access_policy_object_ids" {
   description = "Map of access_policy_object_ids values across all healthcare_services, keyed the same as var.healthcare_services"
   value       = { for k, v in azurerm_healthcare_service.healthcare_services : k => v.access_policy_object_ids }
