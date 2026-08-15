@@ -8,7 +8,7 @@ output "healthcare_services_access_policy_object_ids" {
 }
 output "healthcare_services_authentication_configuration" {
   description = "Map of authentication_configuration values across all healthcare_services, keyed the same as var.healthcare_services"
-  value       = { for k, v in azurerm_healthcare_service.healthcare_services : k => v.authentication_configuration if v.authentication_configuration != null && length(v.authentication_configuration) > 0 }
+  value       = { for k, v in azurerm_healthcare_service.healthcare_services : k => one(v.authentication_configuration) if v.authentication_configuration != null && length(v.authentication_configuration) > 0 }
 }
 output "healthcare_services_configuration_export_storage_account_name" {
   description = "Map of configuration_export_storage_account_name values across all healthcare_services, keyed the same as var.healthcare_services"
@@ -16,7 +16,7 @@ output "healthcare_services_configuration_export_storage_account_name" {
 }
 output "healthcare_services_cors_configuration" {
   description = "Map of cors_configuration values across all healthcare_services, keyed the same as var.healthcare_services"
-  value       = { for k, v in azurerm_healthcare_service.healthcare_services : k => v.cors_configuration if v.cors_configuration != null && length(v.cors_configuration) > 0 }
+  value       = { for k, v in azurerm_healthcare_service.healthcare_services : k => one(v.cors_configuration) if v.cors_configuration != null && length(v.cors_configuration) > 0 }
 }
 output "healthcare_services_cosmosdb_key_vault_key_versionless_id" {
   description = "Map of cosmosdb_key_vault_key_versionless_id values across all healthcare_services, keyed the same as var.healthcare_services"
@@ -28,7 +28,7 @@ output "healthcare_services_cosmosdb_throughput" {
 }
 output "healthcare_services_identity" {
   description = "Map of identity values across all healthcare_services, keyed the same as var.healthcare_services"
-  value       = { for k, v in azurerm_healthcare_service.healthcare_services : k => v.identity if v.identity != null && length(v.identity) > 0 }
+  value       = { for k, v in azurerm_healthcare_service.healthcare_services : k => one(v.identity) if v.identity != null && length(v.identity) > 0 }
 }
 output "healthcare_services_kind" {
   description = "Map of kind values across all healthcare_services, keyed the same as var.healthcare_services"
